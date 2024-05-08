@@ -153,7 +153,7 @@ void printTokens(const vector<Token>& tokens) {
 }
 
 int main() {
-    string filename = "example1.minilang"; 
+    string filename = "example.minilang"; 
     vector<Token> tokens = scanMiniLang(filename);
     saveLexemesToFile(tokens, "types_output.txt", "lexemes_output.txt");
     printTokens(tokens);
