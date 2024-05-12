@@ -44,12 +44,10 @@ vector<Token> scanMiniLang(const string& filename) {
         for (size_t i = 0; i < line.size(); ++i) {
             
            char currentChar = line[i];
-            // Scanner rules below
 
-            // Space
             if (isspace(currentChar))
                 continue;
-            // Integers
+
             if (isdigit(currentChar)) {
                 string integerToken;
                 while (isdigit(currentChar)) {
@@ -61,8 +59,7 @@ vector<Token> scanMiniLang(const string& filename) {
                 i--; 
                 continue;
             }
-            
-            // Identifiers or keywords or boolean literals or datatypes
+
             if (isalpha(currentChar) || currentChar == '_') {
                 string identifierToken;
                 while (isValidIdentifierChar(currentChar)) {
@@ -85,7 +82,7 @@ vector<Token> scanMiniLang(const string& filename) {
                 continue;
             }
 
-            // Comments
+
             if (currentChar == '/') {
                 if (i + 1 < line.size() && line[i + 1] == '/') {
                     string commentToken = line.substr(i);
@@ -94,7 +91,6 @@ vector<Token> scanMiniLang(const string& filename) {
                 }
             }
 
-            // Operators
             if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/' || currentChar == '=' || currentChar == '!' || currentChar == '<' || currentChar == '>') {
                 string operatorToken;
                 operatorToken += currentChar;
@@ -116,7 +112,6 @@ vector<Token> scanMiniLang(const string& filename) {
     return tokens;
 }
 
-
 void saveLexemesToFile(const vector<Token>& tokens, const string& outputFilename1, const string& outputFilename2) {
     ofstream outputFile1(outputFilename1);
 
@@ -128,8 +123,7 @@ void saveLexemesToFile(const vector<Token>& tokens, const string& outputFilename
     for (const auto& token : tokens) {
         outputFile1 << token.type << endl;
     }
-    
-
+     
     outputFile1.close();
 
     ofstream outputFile(outputFilename2);
@@ -153,7 +147,7 @@ void printTokens(const vector<Token>& tokens) {
 }
 
 int main() {
-    string filename = "example.minilang"; 
+    string filename = "example1.minilang"; 
     vector<Token> tokens = scanMiniLang(filename);
     saveLexemesToFile(tokens, "types_output.txt", "lexemes_output.txt");
     printTokens(tokens);
