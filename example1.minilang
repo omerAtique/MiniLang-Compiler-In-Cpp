@@ -1,2 +1,23 @@
 int x = 10;
 int y = 20;
+
+
+
+
+if (sum >= 30) {
+    print ("Sum is greater than or equal to 30");
+} else {
+    print ("Sum is less than 30");
+}
+
+int x = 10;
+int y = 20;
+
+if (sum >= 30) {
+    print ("Sum is greater than or equal to 30");
+} else {
+    print ("Sum is less than 30");
+}
+
+int x  = 10;
+int y = 20;
